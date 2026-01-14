@@ -1,0 +1,30 @@
+{
+  "name": "npm-react",
+  "version": "1.0.0",
+  "description": "Learn React",
+  "keywords": [],
+  "homepage": "https://github.com/shalini081996/React#readme",
+  "bugs": {
+    "url": "https://github.com/shalini081996/React/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shalini081996/React.git"
+  },
+  "license": "ISC",
+  "author": "Shalini Kashyap",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+}

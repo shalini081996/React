@@ -1,11 +1,12 @@
-
+import React from "react";
+import ReactDOM from "react-dom/client";
 // createElement returns ReactElement object
 // accepts props :  {id:"heading"}, "Hello World!"
-const heading = React.createElement("h1", { id: "heading" }, "Hello World!");
+const heading = React.createElement("h1", { id: "heading" }, "React starts!");
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// root.render(heading);
+root.render(heading);
 
 /**
 <div id="parent">
@@ -16,15 +17,15 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 </div>
 */
 
-let child1 = React.createElement("div", {id: "child1"},
-        [React.createElement("h1", {}, "I am a h1 tag."),React.createElement("h2", {}, "I am a h2 tag.")])
-let child2 =React.createElement("div", {id: "child2"},
-        [React.createElement("h1", {}, "I am a h1 tag."),React.createElement("h2", {}, "I am a h2 tag.")])
+// let child1 = React.createElement("div", {id: "child1"},
+//         [React.createElement("h1", {}, "I am a h1 tag."),React.createElement("h2", {}, "I am a h2 tag.")])
+// let child2 =React.createElement("div", {id: "child2"},
+//         [React.createElement("h1", {}, "I am a h1 tag."),React.createElement("h2", {}, "I am a h2 tag.")])
 
-let parent = React.createElement("div", {id: "parent"}, 
-        [child1,child2]
-    )
+// let parent = React.createElement("div", {id: "parent"}, 
+//         [child1,child2]
+//     )
 
 
 
-root.render(parent);
+// root.render(parent);
