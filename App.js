@@ -1,8 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+//React component
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// JSX - HTML or XML like syntax
-const jsxHeading = <h1 id="heading-jsx" className="heading">React and JSX begins</h1>;
+const Title = () => (<h1 className="title">React Functional component</h1>);
+// component composition
+const HeadingComponent = () => (
+    <div className="container">
+        <Title />
+        <h2 className="heading">Functions returning JSX or React element is functional component</h2>
+    </div>
+);
 
-root.render(jsxHeading);
+root.render(<HeadingComponent />);
