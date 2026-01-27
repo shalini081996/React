@@ -1,0 +1,2 @@
+export const CDN_URL = "https://dineout-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/DINEOUT_ALL_RESTAURANTS/IMAGES/RESTAURANT_IMAGE_SERVICE/2025/11/18/";
+export const LOGO_URL = "https://cbx-prod.b-cdn.net/COLOURBOX38603643.jpg?width=1200&height=1200&quality=70";
