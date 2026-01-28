@@ -11,7 +11,7 @@ const resList = [
     id: 2,
     name: "WOW China!",
     cuisines: ["Chinese", "Fast Food"],
-    rating: 4.3,
+    rating: 4.8,
     etaMin: 22,
     img:'cab0a8ba-bf1e-4cad-99e5-ed2595ef080a_88480eb3f9d940b8ab0325b4c100f21d1ce53bfa50c74a3ca13fd2561627ec95.JPG'
   },
@@ -27,7 +27,7 @@ const resList = [
     id: 4,
     name: "Harvi's Pizza",
     cuisines: ["Italian", "American", "Fast Food"],
-    rating: 4.3,
+    rating: 4.8,
     etaMin: 17,
     img:'10cfd990-d0dd-4e36-8421-139e0b4012d9_9618f06ea80f4abfa72694e5a64a41e527aa254be0da4062883e022d3402b977.JPG'
   }

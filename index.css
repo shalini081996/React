@@ -56,3 +56,8 @@
     border: 1px solid #000;
 }
 
+.filter-btn {
+    margin: .5rem;
+    padding: .25rem;
+}
+
