@@ -5,8 +5,9 @@ import ShimmerComponent from "./shimmer";
 
 const BodyComponent = () => {
   //Super powerful variables
-  let [restaurantList, setRestaurantList] = useState([]);
-
+  const [restaurantList, setRestaurantList] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
   useEffect(()=> {
     fetchRestaurantsData();
   }, [])
@@ -14,6 +15,7 @@ const BodyComponent = () => {
   const fetchRestaurantsData = async() => {
     let response = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.67400&lng=76.72490&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     let responseJSON = await response.json();
+    setFilteredRestaurants(responseJSON?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     setRestaurantList(responseJSON?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
   }
 
@@ -21,15 +23,19 @@ const BodyComponent = () => {
     const filteredRestaurants = restaurantList.filter((restaurant) => {
           return restaurant?.info?.avgRating > 4.5
     });
-    setRestaurantList(filteredRestaurants);
+    setFilteredRestaurants(filteredRestaurants);
   }
 
-  const searchRestaurants = (event) => {
-    let searchTerm = event.target.value;
+  const searchRestaurants = () => {
+    console.log(restaurantList)
+    if(!searchText) {
+      setFilteredRestaurants(restaurantList);
+      return;
+    }
     const searchedRestaurants = restaurantList.filter((restaurant) => {
-          return restaurant?.info?.name.toLowerCase().includes(searchTerm?.toLowerCase())
+          return restaurant?.info?.name?.toLowerCase().includes(searchText?.toLowerCase())
     });
-    setRestaurantList(searchedRestaurants);
+    setFilteredRestaurants(searchedRestaurants);
   }
   
   //Normal Variable
@@ -37,15 +43,23 @@ const BodyComponent = () => {
 
   return restaurantList.length === 0 ? <ShimmerComponent/> : (
     <div className="body">
-      <div className="search"><input type="text" className="search-box" onChange={(e)=> {
-        searchRestaurants(e);
-      }}/></div>
-      <div className="filters"><button className="filter-btn" onClick ={() => {
-        filterTopRatedRestaurants();
-      }}>Top Rated Restaurants</button></div>
+      
+      <div className="filters">
+        <div className="search">
+          <input type="text" className="search-box" value={searchText} onChange={(e)=> {
+            setSearchText(e.target.value);
+          }}/>
+          <button className="" onClick={() => {
+            searchRestaurants();
+          }}>Search</button>
+        </div>
+        <button className="filter-btn" onClick ={() => {
+          filterTopRatedRestaurants();
+        }}>Top Rated Restaurants</button>
+      </div>
       <div className="res-container">
         {
-          restaurantList?.map((restaurant) => (<RestroCardComponent key={restaurant?.info?.id} resData={restaurant?.info}/>))
+          filteredRestaurants?.map((restaurant) => (<RestroCardComponent key={restaurant?.info?.id} resData={restaurant?.info}/>))
         }
       </div>
     </div>
